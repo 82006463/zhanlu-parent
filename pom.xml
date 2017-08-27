@@ -9,6 +9,7 @@
     <version>0.0.1</version>
     <packaging>pom</packaging>
     <name>zhanlu-parent</name>
+
     <url>http://zhanlu.com</url>
     <inceptionYear>2013</inceptionYear>
     <description>zhanlu is free workflow.</description>
@@ -17,22 +18,12 @@
         <spring.boot.version>1.5.6.RELEASE</spring.boot.version>
         <mybatis.spring.boot.version>1.1.1</mybatis.spring.boot.version>
         <zhanlu.core.version>0.0.1-SNAPSHOT</zhanlu.core.version>
+
         <java.version>1.8</java.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <maven.compiler.source>${java.version}</maven.compiler.source>
         <maven.compiler.target>${java.version}</maven.compiler.target>
-
-        <!-- maven plugin -->
-        <maven.plugin.compiler.version>3.5.1</maven.plugin.compiler.version>
-        <assembly.descriptor.path>src/main/assembly/assembly.xml</assembly.descriptor.path>
-        <maven.deploy.plugin.version>2.8.1</maven.deploy.plugin.version>
-        <maven.source.plugin.version>2.2.1</maven.source.plugin.version>
-        <maven.javadoc.plugin.version>2.9.1</maven.javadoc.plugin.version>
-        <maven.jar.plugin.version>2.4</maven.jar.plugin.version>
-        <maven.war.plugin.version>2.4</maven.war.plugin.version>
-        <maven.install.plugin.version>2.5.1</maven.install.plugin.version>
-        <maven.release.plugin.version>2.5</maven.release.plugin.version>
 
         <!-- alibaba libs -->
         <druid.version>1.0.17</druid.version>
@@ -51,8 +42,18 @@
         <!-- frameworks libs -->
         <okhttp.version>2.7.5</okhttp.version>
         <lombok.version>1.16.6</lombok.version>
-        <mysql.connector.version>5.1.14</mysql.connector.version>
+        <mysql.connector.version>5.1.54</mysql.connector.version>
         <shiro.version>1.2.2</shiro.version>
+
+        <!-- maven plugin -->
+        <maven.compiler.plugin.version>3.5.1</maven.compiler.plugin.version>
+        <maven.install.plugin.version>2.5.1</maven.install.plugin.version>
+        <maven.release.plugin.version>2.5</maven.release.plugin.version>
+        <maven.deploy.plugin.version>2.8.1</maven.deploy.plugin.version>
+        <maven.source.plugin.version>2.2.1</maven.source.plugin.version>
+        <maven.javadoc.plugin.version>2.9.1</maven.javadoc.plugin.version>
+        <maven.jar.plugin.version>2.4</maven.jar.plugin.version>
+        <maven.war.plugin.version>2.4</maven.war.plugin.version>
     </properties>
 
     <licenses>
@@ -96,6 +97,11 @@
                 <artifactId>lombok</artifactId>
                 <version>${lombok.version}</version>
             </dependency>
+            <dependency>
+                <groupId>com.squareup.okhttp</groupId>
+                <artifactId>okhttp</artifactId>
+                <version>${okhttp.version}</version>
+            </dependency>
 
             <!-- shiro begin -->
             <dependency>
@@ -106,11 +112,6 @@
             <dependency>
                 <groupId>org.apache.shiro</groupId>
                 <artifactId>shiro-aspectj</artifactId>
-                <version>${shiro.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.apache.shiro</groupId>
-                <artifactId>shiro-ehcache</artifactId>
                 <version>${shiro.version}</version>
             </dependency>
             <dependency>
@@ -237,6 +238,12 @@
     </dependencyManagement>
 
 	<build>
+        <pluginManagement>
+            <plugins>
+
+            </plugins>
+        </pluginManagement>
+
         <resources>
             <resource>
                 <directory>src/main/resources</directory>
@@ -255,7 +262,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
-                <version>${maven.plugin.compiler.version}</version>
+                <version>${maven.compiler.plugin.version}</version>
             </plugin>
         </plugins>
 	</build>

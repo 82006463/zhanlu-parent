@@ -24,18 +24,12 @@ public class Main {
         ConfigurableApplicationContext ctx = null;
         try {
             ctx = SpringApplication.run(Main.class, args);
+            if (!ctx.containsBean("dispatcherServlet")) {
+                latch.await();
+            }
         } catch (Exception e) {
             log.error("Main启动失败", e);
             ctx.close();
-        }
-
-        if (ctx.containsBean("dispatcherServlet")) {
-            try {
-                latch.await();
-            } catch (InterruptedException e) {
-                ctx.close();
-                e.printStackTrace();
-            }
         }
         return ctx;
     }
