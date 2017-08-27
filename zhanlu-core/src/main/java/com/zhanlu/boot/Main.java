@@ -29,7 +29,9 @@ public class Main {
             }
         } catch (Exception e) {
             log.error("Main启动失败", e);
-            ctx.close();
+            if (ctx != null) {
+                ctx.close();
+            }
         }
         return ctx;
     }
