@@ -17,7 +17,7 @@
     <properties>
         <spring.boot.version>1.5.6.RELEASE</spring.boot.version>
         <mybatis.spring.boot.version>1.1.1</mybatis.spring.boot.version>
-        <zhanlu.core.version>0.0.1-SNAPSHOT</zhanlu.core.version>
+        <zhanlu.core.version>0.0.1</zhanlu.core.version>
 
         <java.version>1.8</java.version>
         <java.source.version>${java.version}</java.source.version>
@@ -77,6 +77,8 @@
 
     <modules>
         <module>zhanlu-core</module>
+        <module>zhanlu-noweb-pom</module>
+        <module>zhanlu-web-pom</module>
     </modules>
 
     <scm>

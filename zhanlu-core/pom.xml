@@ -16,19 +16,6 @@
     <url>https://github.com/82006463/zhanlu</url>
     <description>zhanlu is free workflow.</description>
 
-    <licenses>
-        <license>
-            <name>Apache License, Version 2.0</name>
-            <url>http://www.apache.org/licenses/LICENSE-2.0</url>
-        </license>
-    </licenses>
-
-    <scm>
-        <url>git@github.com:82006463/zhanlu-core.git</url>
-        <connection>scm:git:git@github.com:82006463/zhanlu-core.git</connection>
-        <developerConnection>scm:git:git@github.com:82006463/zhanlu-core.git</developerConnection>
-    </scm>
-
     <dependencies>
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -44,13 +31,4 @@
             <artifactId>lombok</artifactId>
         </dependency>
     </dependencies>
-
-    <build>
-        <plugins>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-compiler-plugin</artifactId>
-            </plugin>
-        </plugins>
-    </build>
 </project>
