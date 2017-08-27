@@ -6,7 +6,7 @@
     <parent>
         <groupId>com.zhanlu</groupId>
         <artifactId>zhanlu-parent</artifactId>
-        <version>0.0.1</version>
+        <version>${zhanlu.core.version}</version>
     </parent>
 
     <modelVersion>4.0.0</modelVersion>
@@ -31,9 +31,13 @@
 
     <dependencies>
         <dependency>
-            <groupId>cglib</groupId>
-            <artifactId>cglib-nodep</artifactId>
-            <version>2.2</version>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
         </dependency>
     </dependencies>
 

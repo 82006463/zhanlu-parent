@@ -4,9 +4,7 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 
     <parent>
-        <groupId>org.sonatype.oss</groupId>
-        <artifactId>oss-parent</artifactId>
-        <version>7</version>
+        <artifactId>spring-boot-</artifactId>
     </parent>
 
     <modelVersion>4.0.0</modelVersion>
@@ -19,9 +17,47 @@
     <inceptionYear>2013</inceptionYear>
     <description>zhanlu is free workflow.</description>
 
-    <modules>
-        <module>zhanlu-core</module>
-    </modules>
+    <properties>
+        <spring.boot.version>1.3.3.RELEASE</spring.boot.version>
+        <mybatis.spring.boot.version>1.1.1</mybatis.spring.boot.version>
+        <zhanlu.core.version>0.0.1-SNAPSHOT</zhanlu.core.version>
+        <java.version>1.8</java.version>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <maven.compiler.source>${java.version}</maven.compiler.source>
+        <maven.compiler.target>${java.version}</maven.compiler.target>
+
+        <!-- maven plugin -->
+        <maven.plugin.compiler.version>3.5.1</maven.plugin.compiler.version>
+        <assembly.descriptor.path>src/main/assembly/assembly.xml</assembly.descriptor.path>
+        <maven.deploy.plugin.version>2.8.1</maven.deploy.plugin.version>
+        <maven.source.plugin.version>2.2.1</maven.source.plugin.version>
+        <maven.javadoc.plugin.version>2.9.1</maven.javadoc.plugin.version>
+        <maven.jar.plugin.version>2.4</maven.jar.plugin.version>
+        <maven.war.plugin.version>2.4</maven.war.plugin.version>
+        <maven.install.plugin.version>2.5.1</maven.install.plugin.version>
+        <maven.release.plugin.version>2.5</maven.release.plugin.version>
+
+        <!-- for dependency management -->
+        <!-- Common libs -->
+        <druid.version>0.2.10</druid.version>
+        <fastjson.version>1.2.7</fastjson.version>
+        <mysql.connector.version>5.1.14</mysql.connector.version>
+        <cglib.version>2.2</cglib.version>
+        <simpleimage.version>1.2.0</simpleimage.version>
+        <shiro.version>1.2.2</shiro.version>
+
+        <poi.version>3.7</poi.version>
+        <digester.version>2.1</digester.version>
+        <fileupload.version>1.2.2</fileupload.version>
+        <io.version>2.4</io.version>
+        <lang.version>2.6</lang.version>
+        <beanutils.version>1.8.0</beanutils.version>
+        <collections.version>3.2</collections.version>
+        <codec.version>1.8</codec.version>
+        <okhttp.version>2.7.5</okhttp.version>
+        <lombok.version>1.16.6</lombok.version>
+    </properties>
 
     <licenses>
         <license>
@@ -30,28 +66,113 @@
         </license>
     </licenses>
 
+    <modules>
+        <module>zhanlu-core</module>
+    </modules>
+
     <scm>
         <url>git@github.com:82006463/zhanlu-parent.git</url>
         <connection>scm:git:git@github.com:82006463/zhanlu-parent.git</connection>
         <developerConnection>scm:git:git@github.com:82006463/zhanlu-parent.git</developerConnection>
     </scm>
 
+    <dependencyManagement>
+        <dependencies>
+            <!-- Common libs -->
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>druid</artifactId>
+                <version>${druid.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>fastjson</artifactId>
+                <version>${fastjson.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>mysql</groupId>
+                <artifactId>mysql-connector-java</artifactId>
+                <version>${mysql.connector.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>cglib</groupId>
+                <artifactId>cglib-nodep</artifactId>
+                <version>${cglib.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>cglib</groupId>
+                <artifactId>cglib</artifactId>
+                <version>2.2.2</version>
+            </dependency>
+
+            <!-- shiro begin -->
+            <dependency>
+                <groupId>org.apache.shiro</groupId>
+                <artifactId>shiro-web</artifactId>
+                <version>${shiro.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.shiro</groupId>
+                <artifactId>shiro-aspectj</artifactId>
+                <version>${shiro.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.shiro</groupId>
+                <artifactId>shiro-ehcache</artifactId>
+                <version>${shiro.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.shiro</groupId>
+                <artifactId>shiro-spring</artifactId>
+                <version>${shiro.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.shiro</groupId>
+                <artifactId>shiro-core</artifactId>
+                <version>${shiro.version}</version>
+            </dependency>
+            <!-- shiro end -->
+
+            <dependency>
+                <groupId>org.projectlombok</groupId>
+                <artifactId>lombok</artifactId>
+                <version>${lombok.version}</version>
+            </dependency>
+
+            <!-- 在不用继承父POM的情况使用Spring Boot -->
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-dependencies</artifactId>
+                <version>${spring.boot.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
 	<build>
-		<plugins>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-gpg-plugin</artifactId>
-				<version>1.4</version>
-				<executions>
-					<execution>
-						<id>sign-artifacts</id>
-						<phase>verify</phase>
-						<goals>
-							<goal>sign</goal>
-						</goals>
-					</execution>
-				</executions>
-			</plugin>
-		</plugins>
+        <resources>
+            <resource>
+                <directory>src/main/resources</directory>
+                <filtering>true</filtering>
+            </resource>
+        </resources>
+
+        <testResources>
+            <testResource>
+                <directory>src/test/resources</directory>
+                <filtering>true</filtering>
+            </testResource>
+        </testResources>
+
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>${maven.plugin.compiler.version}</version>
+            </plugin>
+        </plugins>
 	</build>
 </project>
