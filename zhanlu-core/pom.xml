@@ -6,7 +6,7 @@
     <parent>
         <groupId>com.zhanlu</groupId>
         <artifactId>zhanlu-parent</artifactId>
-        <version>${zhanlu.core.version}</version>
+        <version>0.0.1</version>
     </parent>
 
     <modelVersion>4.0.0</modelVersion>
