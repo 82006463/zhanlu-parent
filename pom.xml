@@ -79,12 +79,6 @@
         <module>zhanlu-web-pom</module>-->
     </modules>
 
-    <scm>
-        <url>git@github.com:82006463/zhanlu-parent.git</url>
-        <connection>scm:git:git@github.com:82006463/zhanlu-parent.git</connection>
-        <developerConnection>scm:git:git@github.com:82006463/zhanlu-parent.git</developerConnection>
-    </scm>
-
     <dependencyManagement>
         <dependencies>
             <!-- alibaba libs -->
