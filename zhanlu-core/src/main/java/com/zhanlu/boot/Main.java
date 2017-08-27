@@ -8,9 +8,9 @@ import org.springframework.context.ConfigurableApplicationContext;
 import java.util.concurrent.CountDownLatch;
 
 /**
- * 所有应用入口
+ * 所有应用入口<p>Date 2017-08-27</p>
  *
- * date 2017-08-27
+ * @author zhanlu
  */
 @Slf4j
 @SpringBootApplication
