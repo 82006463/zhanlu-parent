@@ -8,7 +8,9 @@ import org.springframework.context.ConfigurableApplicationContext;
 import java.util.concurrent.CountDownLatch;
 
 /**
- * Created by Administrator on 2017/8/27.
+ * 所有应用入口
+ *
+ * @date 2017-08-27
  */
 @Slf4j
 @SpringBootApplication
