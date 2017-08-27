@@ -10,7 +10,7 @@ import java.util.concurrent.CountDownLatch;
 /**
  * 所有应用入口
  *
- * @date 2017-08-27
+ * date 2017-08-27
  */
 @Slf4j
 @SpringBootApplication
@@ -18,10 +18,20 @@ public class Main {
 
     private static CountDownLatch latch = null;
 
+    /**
+     * 执行
+     * @param args 参数
+     */
     public static void main(String[] args) {
         Main.run(Main.class, args);
     }
 
+    /**
+     * 执行
+     * @param clazz SpringBootApplication注解的类
+     * @param args 参数
+     * @return ConfigurableApplicationContext
+     */
     public static ConfigurableApplicationContext run(Class<?> clazz, String[] args) {
         String result = "success";
         ConfigurableApplicationContext ctx = null;
