@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+    <parent>
+        <groupId>org.sonatype.oss</groupId>
+        <artifactId>oss-parent</artifactId>
+        <version>7</version>
+    </parent>
+
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>com.zhanlu</groupId>
+    <artifactId>zhanlu-parent</artifactId>
+    <version>0.0.1</version>
+    <packaging>pom</packaging>
+    <name>zhanlu-parent</name>
+    <url>http://zhanlu.com</url>
+    <inceptionYear>2013</inceptionYear>
+    <description>zhanlu is free workflow.</description>
+
+    <modules>
+        <module>zhanlu-core</module>
+    </modules>
+
+    <licenses>
+        <license>
+            <name>Apache License, Version 2.0</name>
+            <url>http://www.apache.org/licenses/LICENSE-2.0</url>
+        </license>
+    </licenses>
+
+    <scm>
+        <url>git@github.com:82006463/zhanlu-parent.git</url>
+        <connection>scm:git:git@github.com:82006463/zhanlu-parent.git</connection>
+        <developerConnection>scm:git:git@github.com:82006463/zhanlu-parent.git</developerConnection>
+    </scm>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-gpg-plugin</artifactId>
+				<version>1.4</version>
+				<executions>
+					<execution>
+						<id>sign-artifacts</id>
+						<phase>verify</phase>
+						<goals>
+							<goal>sign</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+	</build>
+</project>
