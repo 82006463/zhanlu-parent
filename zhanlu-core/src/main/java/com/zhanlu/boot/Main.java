@@ -21,16 +21,24 @@ public class Main {
     }
 
     public static ConfigurableApplicationContext run(Class<?> clazz, String[] args) {
+        String result = "success";
         ConfigurableApplicationContext ctx = null;
         try {
-            ctx = SpringApplication.run(Main.class, args);
-            if (!ctx.containsBean("dispatcherServlet")) {
-                latch.await();
-            }
+            ctx = SpringApplication.run(clazz, args);
         } catch (Exception e) {
+            result = "error";
             log.error("Main启动失败", e);
-            if (ctx != null) {
-                ctx.close();
+        }
+        log.info("service-start-" + result);
+        if (ctx != null && result.equals("error")) {
+            ctx.close();
+            ctx = null;
+        }
+        if (ctx != null && result.equals("success") && !ctx.containsBean("dispatcherServlet")) {
+            try {
+                latch.await();
+            } catch (Exception e) {
+                log.error("Main启动时锁失败", e);
             }
         }
         return ctx;
