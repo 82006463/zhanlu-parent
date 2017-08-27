@@ -14,7 +14,7 @@ import java.util.concurrent.CountDownLatch;
 @SpringBootApplication
 public class Main {
 
-    private static final CountDownLatch latch = new CountDownLatch(1);
+    private static CountDownLatch latch = null;
 
     public static void main(String[] args) {
         Main.run(Main.class, args);
@@ -24,7 +24,10 @@ public class Main {
         String result = "success";
         ConfigurableApplicationContext ctx = null;
         try {
-            ctx = SpringApplication.run(clazz, args);
+            //Map<String, Object> defaultProperties = new HashMap<String, Object>();
+            //defaultProperties.put("spring.config.name", "application,application_ext");
+            SpringApplication app = new SpringApplication(clazz);
+            ctx = app.run(clazz, args);
         } catch (Exception e) {
             result = "error";
             log.error("Main启动失败", e);
@@ -35,6 +38,7 @@ public class Main {
             ctx = null;
         }
         if (ctx != null && result.equals("success") && !ctx.containsBean("dispatcherServlet")) {
+            Main.latch = new CountDownLatch(1);
             try {
                 latch.await();
             } catch (Exception e) {
