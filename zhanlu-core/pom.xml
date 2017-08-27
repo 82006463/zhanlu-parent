@@ -6,15 +6,13 @@
     <parent>
         <groupId>com.zhanlu</groupId>
         <artifactId>zhanlu-parent</artifactId>
-        <version>0.0.1</version>
+        <version>${zhanlu.core.version}</version>
     </parent>
 
     <modelVersion>4.0.0</modelVersion>
     <artifactId>zhanlu-core</artifactId>
     <packaging>jar</packaging>
     <name>zhanlu-core</name>
-    <url>https://github.com/82006463/zhanlu</url>
-    <description>zhanlu is free workflow.</description>
 
     <dependencies>
         <dependency>
