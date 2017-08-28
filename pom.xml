@@ -30,9 +30,9 @@
         <fastjson.version>1.2.12</fastjson.version>
 
         <!-- frameworks libs -->
+        <mysql.connector.version>5.1.24</mysql.connector.version>
         <lombok.version>1.16.6</lombok.version>
         <okhttp.version>2.7.5</okhttp.version>
-        <mysql.connector.version>5.1.54</mysql.connector.version>
         <quartz.version>2.2.2</quartz.version>
         <guava.version>19.0</guava.version>
         <disruptor.version>3.3.4</disruptor.version>
@@ -92,16 +92,16 @@
                 <artifactId>fastjson</artifactId>
                 <version>${fastjson.version}</version>
             </dependency>
+            <dependency>
+                <groupId>mysql</groupId>
+                <artifactId>mysql-connector-java</artifactId>
+                <version>${mysql.connector.version}</version>
+            </dependency>
 
             <dependency>
                 <groupId>org.projectlombok</groupId>
                 <artifactId>lombok</artifactId>
                 <version>${lombok.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>mysql</groupId>
-                <artifactId>mysql-connector-java</artifactId>
-                <version>${mysql.connector.version}</version>
             </dependency>
             <dependency>
                 <groupId>com.squareup.okhttp</groupId>

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+	
+	<include resource="org/springframework/boot/logging/logback/defaults.xml" />
+	<include resource="org/springframework/boot/logging/logback/console-appender.xml" />
+	
+	<!--兼容之前的日志格式-->
+	<property name="FILE_LOG_PATTERN" value="%d{yyyy-MM-dd HH:mm:ss.SSS} %-5level [%thread] %logger{36} - %msg%n"/>
+	<property name="APP_NAME" value="${app.name:-app}"/>
+	<property name="LOG_PATH" value="${LOG_PATH:-/app/logs/${env:-default}/${APP_NAME}/${HOSTNAME:-hostname}}"/>
+	
+	<!--在SpringBoot file-appender.xml基础上修改-->
+	<appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<encoder>
+			<pattern>${FILE_LOG_PATTERN}</pattern>
+		</encoder>
+		<file>${LOG_PATH}/${APP_NAME}.log</file>
+		<rollingPolicy class="ch.qos.logback.core.rolling.FixedWindowRollingPolicy">
+			<fileNamePattern>${LOG_PATH}/${APP_NAME}.log.%i</fileNamePattern>
+		</rollingPolicy>
+		<triggeringPolicy class="ch.qos.logback.core.rolling.SizeBasedTriggeringPolicy">
+			<MaxFileSize>50MB</MaxFileSize>
+		</triggeringPolicy>
+	</appender>
+	
+	<springProfile name="default">
+		<root level="INFO">
+			<appender-ref ref="CONSOLE" />
+		</root>
+	</springProfile>
+	
+	<springProfile name="dev,test,pre,prod">
+		<root level="INFO">
+			<appender-ref ref="FILE" />
+		</root>
+	</springProfile>
+</configuration>
