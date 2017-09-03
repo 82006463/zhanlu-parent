@@ -11,8 +11,9 @@
     <name>zhanlu-parent</name>
 
     <properties>
-        <zhanlu.parent.version>0.0.1</zhanlu.parent.version>
         <zhanlu.core.version>0.0.1</zhanlu.core.version>
+        <zhanlu.noweb.version>0.0.1</zhanlu.noweb.version>
+        <zhanlu.web.version>0.0.1</zhanlu.web.version>
 
         <spring.boot.version>1.5.6.RELEASE</spring.boot.version>
         <mybatis.spring.boot.version>1.1.1</mybatis.spring.boot.version>
@@ -34,9 +35,10 @@
         <guava.version>19.0</guava.version>
         <disruptor.version>3.3.4</disruptor.version>
         <shiro.version>1.2.2</shiro.version>
+        <snaker.version>2.5.1</snaker.version>
 
         <!-- apache commons libs -->
-        <commons.io.version>2.4</commons.io.version>
+        <commons.io.version>1.3.2</commons.io.version>
         <commons.fileupload.version>1.3.1</commons.fileupload.version>
         <commons.beanutils.version>1.9.2</commons.beanutils.version>
         <commons.collections.version>3.2.2</commons.collections.version>
@@ -65,8 +67,7 @@
 
     <modules>
         <module>zhanlu-core</module>
-        <!--<module>zhanlu-noweb-pom</module>
-        <module>zhanlu-web-pom</module>-->
+        <module>zhanlu-common</module>
     </modules>
 
     <dependencyManagement>
@@ -112,6 +113,22 @@
                 <groupId>com.lmax</groupId>
                 <artifactId>disruptor</artifactId>
                 <version>${disruptor.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.github.snakerflow</groupId>
+                <artifactId>snaker-core</artifactId>
+                <version>${snaker.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.github.snakerflow</groupId>
+                <artifactId>snaker-spring</artifactId>
+                <version>${snaker.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.github.snakerflow</groupId>
+                <artifactId>snaker-hibernate</artifactId>
+                <version>${snaker.version}</version>
             </dependency>
 
             <!-- shiro begin -->
@@ -329,6 +346,32 @@
             <groupId>com.google.guava</groupId>
             <artifactId>guava</artifactId>
         </dependency>
+
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-io</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>commons-fileupload</groupId>
+            <artifactId>commons-fileupload</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>commons-beanutils</groupId>
+            <artifactId>commons-beanutils</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-digester3</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>commons-codec</groupId>
+            <artifactId>commons-codec</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
+        </dependency>
+
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
