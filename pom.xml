@@ -2,23 +2,20 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-
     <modelVersion>4.0.0</modelVersion>
+
     <groupId>com.zhanlu</groupId>
     <artifactId>zhanlu-parent</artifactId>
     <version>0.0.1</version>
     <packaging>pom</packaging>
     <name>zhanlu-parent</name>
 
-    <url>http://zhanlu.com</url>
-    <inceptionYear>2013</inceptionYear>
-    <description>zhanlu is free workflow.</description>
-
     <properties>
-        <spring.boot.version>1.5.6.RELEASE</spring.boot.version>
-        <mybatis.spring.boot.version>1.1.1</mybatis.spring.boot.version>
+        <zhanlu.parent.version>0.0.1</zhanlu.parent.version>
         <zhanlu.core.version>0.0.1</zhanlu.core.version>
 
+        <spring.boot.version>1.5.6.RELEASE</spring.boot.version>
+        <mybatis.spring.boot.version>1.1.1</mybatis.spring.boot.version>
         <java.version>1.8</java.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
@@ -65,13 +62,6 @@
         <maven.deploy.skip.sources>false</maven.deploy.skip.sources>
         <maven.deploy.skip.javadoc>false</maven.deploy.skip.javadoc>
     </properties>
-
-    <licenses>
-        <license>
-            <name>Apache License, Version 2.0</name>
-            <url>http://www.apache.org/licenses/LICENSE-2.0</url>
-        </license>
-    </licenses>
 
     <modules>
         <module>zhanlu-core</module>
@@ -334,6 +324,10 @@
         <dependency>
             <groupId>com.alibaba</groupId>
             <artifactId>fastjson</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.google.guava</groupId>
+            <artifactId>guava</artifactId>
         </dependency>
         <dependency>
             <groupId>org.projectlombok</groupId>
