@@ -316,6 +316,8 @@
                 <artifactId>spring-boot-starter-thymeleaf</artifactId>
                 <version>${spring.boot.version}</version>
             </dependency>
+            <!-- spring boot end -->
+
             <!-- 在不用继承父POM的情况使用Spring Boot -->
             <dependency>
                 <groupId>org.springframework.boot</groupId>
