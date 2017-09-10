@@ -26,8 +26,8 @@ public class QueryItem {
         if (attrName.contains(" OR ")) {
             fieldName = attrName;
             fieldVal = attrVal;
-            compType = "or";
-            dataType = "String";
+            compType = CompType.Or.getKey();
+            dataType = DataType.String.name();
             String[] orArr = attrName.split(" OR ");
             subItems = new ArrayList<>(orArr.length);
             for (String or : orArr) {
@@ -39,7 +39,7 @@ public class QueryItem {
             compType = attrNameArr[0];
             dataType = attrNameArr[1];
             if (attrVal != null && attrVal instanceof String && attrVal.toString().trim().length() > 0) {
-                if (compType.equalsIgnoreCase("In")) {
+                if (compType.equalsIgnoreCase(CompType.In.name())) {
                     List<Object> dataList = new ArrayList<>(1);
                     dataList.add(ConvertUtils.convertStringToObject(attrVal.toString(), DataType.valueOf(dataType).getKey()));
                     fieldVal = dataList;

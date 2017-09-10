@@ -1,6 +1,7 @@
 package com.zhanlu.common.page;
 
 import com.zhanlu.common.enums.DataType;
+import com.zhanlu.common.enums.TagType;
 import com.zhanlu.common.util.ConvertUtils;
 
 import java.util.ArrayList;
@@ -25,10 +26,10 @@ public class EditItem {
         String tagType = this.itemMap.get("tagType");
         String isArray = this.itemMap.get("isArray");
         if (attrValArr != null) {
-            if (tagType.equals("subForm")) {
+            if (tagType.equals(TagType.SubForm.name())) {
                 fieldVal = attrValArr;
             } else {
-                if (dataType.equalsIgnoreCase("String")) {
+                if (dataType.equalsIgnoreCase(DataType.String.name())) {
                     fieldVal = isArray.equals("1") ? attrValArr : attrValArr[0];
                 } else if (isArray.equals("1") || isArray.contains("yes")) {
                     Object[] tmpArr = new Object[attrValArr.length];

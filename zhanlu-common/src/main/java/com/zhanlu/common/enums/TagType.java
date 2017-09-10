@@ -10,7 +10,7 @@ import java.util.Map;
  */
 public enum TagType {
 
-    Input("input"), Date("date"), Timestamp("timestamp"), Textarea("textarea"), Select("select"), Radio("radio"), Checkbox("checkbox");
+    Input("input"), Date("date"), Timestamp("timestamp"), Textarea("textarea"), Select("select"), Radio("radio"), Checkbox("checkbox"), SubForm("subForm");
 
     private String key;
 
