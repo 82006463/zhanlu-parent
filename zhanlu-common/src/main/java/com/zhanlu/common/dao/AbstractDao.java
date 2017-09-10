@@ -4,7 +4,6 @@ import com.zhanlu.common.entity.IdEntity;
 import com.zhanlu.common.util.ReflectionUtils;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.orm.hibernate5.HibernateTemplate;
-import org.springframework.stereotype.Repository;
 
 import javax.annotation.Resource;
 import java.io.Serializable;
@@ -16,7 +15,7 @@ import java.util.Map;
 /**
  * Dao层的通用父类
  *
- * @param <T> 实体对象
+ * @param <T>  实体对象
  * @param <PK> 实体对象ID
  */
 @Slf4j
@@ -97,7 +96,10 @@ public class AbstractDao<T extends IdEntity, PK extends Serializable> {
                 params.add(entry.getValue());
             }
             return (List<T>) hibernateTemplate.find(hql.toString(), params.toArray());
+        } else {
+            hql.append(" AND t.status>0");
         }
         return (List<T>) hibernateTemplate.find(hql.toString());
     }
+
 }
